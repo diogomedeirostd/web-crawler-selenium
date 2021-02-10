@@ -59,7 +59,7 @@ public final class RegExParser {
     }
 
     /**
-     * To be used as a way to apply filters that remove "trash" from the whole content of the crawled websites
+     * To be used as a way to apply filters that remove unnecessary text from the whole content of the crawled websites
      * @param content content extracted from the website
      * @param patternList patterns to filter by
      */

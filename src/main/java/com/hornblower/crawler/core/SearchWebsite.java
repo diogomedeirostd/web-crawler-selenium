@@ -18,8 +18,8 @@ public class SearchWebsite {
     /**
      * With the urlList and the kind of HTML element to search for this extracts the contents and creates a list of pages
      * based on that
-     * @param urlList
-     * @param by
+     * @param urlList List of URLs
+     * @param by Element to search by
      * @return
      */
     public static List<JSONObject> search(List<String> urlList, By by) {
@@ -84,7 +84,6 @@ public class SearchWebsite {
             lineScanner.close();
             newLine = newLine.trim();
             if (!filterList.contains(newLine)) {
-                //System.out.println(newLine);
                 newContent += newLine + "\n   ";
             }
             newLine = "";

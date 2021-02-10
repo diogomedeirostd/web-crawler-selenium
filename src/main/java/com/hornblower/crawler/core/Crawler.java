@@ -1,7 +1,6 @@
 package com.hornblower.crawler.core;
 
 import com.hornblower.crawler.articlesplit.Split;
-import com.hornblower.crawler.parsing.JsonUtilities;
 import com.hornblower.crawler.parsing.RegExParser;
 import com.hornblower.crawler.parsing.XMLParser;
 import org.json.simple.JSONObject;
@@ -33,6 +32,7 @@ public class Crawler {
     }
 
     /**
+     * This Method is not implemented. The idea was to have a list of regex patterns in order to filter the page with them and remove some unnecessary text with it.
      * Calls every necessary service in order to parse the sitemap, get the filtered by patterns url list, search those urls and
      * finally get the content on json files
      *
@@ -45,15 +45,6 @@ public class Crawler {
         List<String> newUrlList = RegExParser.urlPatternParser(patternList, urlList);
         List<JSONObject> pages = SearchWebsite.search(newUrlList, By.tagName("body"));
         Split.splitPages(pages);
-    }
-
-    /**
-     * Shouldn't be referenced directly to confluence but how do we filter what part of the content to get?
-     * Confluence pages have too much trash if we get the "body"
-     */
-    public static void startCrawlConfluence(List<String> urlList, String fileName) {
-        SearchWebsite.search(urlList, By.id("content"));
-        JsonUtilities.newFile(fileName);
     }
 
 }
